@@ -33,4 +33,9 @@ public class PerguntaController {
     public Pergunta criarPergunta(@RequestBody PerguntaDto request){
         return service.criarPergunta(request);
     }
+
+    @PutMapping("/{id}")
+    public Pergunta atualizarPergunta(@RequestBody PerguntaDto request, @PathVariable Integer id){
+        return service.atualizarPergunta(request,id);
+    }
 }

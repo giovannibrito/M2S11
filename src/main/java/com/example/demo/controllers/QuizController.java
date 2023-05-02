@@ -29,4 +29,9 @@ public class QuizController {
     public Quiz criarQuiz(@RequestBody Quiz request){
         return service.criarQuiz(request);
     }
+
+    @PutMapping("/{id}")
+    public Quiz atualizarQuiz(@RequestBody Quiz request, @PathVariable Integer id){
+        return service.atualizarQuiz(request, id);
+    }
 }

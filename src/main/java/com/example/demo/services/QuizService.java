@@ -26,4 +26,15 @@ public class QuizService {
     public Quiz criarQuiz(Quiz request) {
         return repository.save(request);
     }
+
+    public Quiz atualizarQuiz(Quiz request, Integer id) {
+        Quiz quiz = repository.findById(id).orElseThrow(EntityNotFoundException::new);
+        if (request.getNome() != null && request.getNome().length() > 0){
+            quiz.setNome(request.getNome());
+        }
+        if (request.getDescricao() != null && request.getDescricao().length() > 0){
+            quiz.setDescricao(request.getDescricao());
+        }
+        return repository.save(quiz);
+    }
 }

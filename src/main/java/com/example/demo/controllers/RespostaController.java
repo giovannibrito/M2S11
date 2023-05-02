@@ -33,4 +33,9 @@ public class RespostaController {
     public Resposta criarResposta(@RequestBody RespostaDto request){
         return service.criarResposta(request);
     }
+
+    @PutMapping("/{id}")
+    public Resposta atualizarResposta(@RequestBody RespostaDto request, @PathVariable Integer id){
+        return service.atualizarResposta(request,id);
+    }
 }
