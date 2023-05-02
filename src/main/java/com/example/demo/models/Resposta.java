@@ -1,9 +1,6 @@
 package com.example.demo.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -13,5 +10,6 @@ public class Resposta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String texto;
+    @ManyToOne
     private Pergunta pergunta;
 }
