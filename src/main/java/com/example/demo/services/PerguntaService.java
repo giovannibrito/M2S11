@@ -47,8 +47,10 @@ public class PerguntaService {
         if (request.getTexto() != null && request.getTexto().length() > 0){
             pergunta.setTexto(request.getTexto());
         }
-        if (request.getQuiz_id() != null && quizRepository.findById(request.getQuiz_id()).isPresent()){
-            pergunta.setQuiz(quizRepository.findById(request.getQuiz_id()).get());
+        if (request.getQuiz_id() != null) {
+            if (quizRepository.findById(request.getQuiz_id()).isPresent()){
+                pergunta.setQuiz(quizRepository.findById(request.getQuiz_id()).get());
+            } else throw new IndexOutOfBoundsException();
         }
         return repository.save(pergunta);
     }

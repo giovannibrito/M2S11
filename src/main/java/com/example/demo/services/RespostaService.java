@@ -45,8 +45,10 @@ public class RespostaService {
         if (request.getTexto() != null && request.getTexto().length() > 0){
             resposta.setTexto(request.getTexto());
         }
-        if (request.getPergunta_id() != null && perguntaRepository.findById(request.getPergunta_id()).isPresent()){
-            resposta.setPergunta(perguntaRepository.findById(request.getPergunta_id()).get());
+        if (request.getPergunta_id() != null){
+            if (perguntaRepository.findById(request.getPergunta_id()).isPresent()){
+                resposta.setPergunta(perguntaRepository.findById(request.getPergunta_id()).get());
+            } else throw new IndexOutOfBoundsException();
         }
         return repository.save(resposta);
 
