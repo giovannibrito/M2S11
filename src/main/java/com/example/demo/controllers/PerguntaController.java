@@ -38,4 +38,9 @@ public class PerguntaController {
     public Pergunta atualizarPergunta(@RequestBody PerguntaDto request, @PathVariable Integer id){
         return service.atualizarPergunta(request,id);
     }
+
+    @DeleteMapping("/{id}")
+    public void excluirPergunta(@PathVariable Integer id){
+        service.excluirPergunta(id);
+    }
 }

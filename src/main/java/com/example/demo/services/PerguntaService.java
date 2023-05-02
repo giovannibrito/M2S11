@@ -52,4 +52,8 @@ public class PerguntaService {
         }
         return repository.save(pergunta);
     }
+
+    public void excluirPergunta(Integer id) {
+        repository.deleteById(id);
+    }
 }

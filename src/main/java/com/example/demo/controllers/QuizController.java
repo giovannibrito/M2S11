@@ -34,4 +34,9 @@ public class QuizController {
     public Quiz atualizarQuiz(@RequestBody Quiz request, @PathVariable Integer id){
         return service.atualizarQuiz(request, id);
     }
+
+    @DeleteMapping("/{id}")
+    public void excluirQuiz(@PathVariable Integer id){
+        service.excluirQuiz(id);
+    }
 }

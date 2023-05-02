@@ -38,4 +38,9 @@ public class RespostaController {
     public Resposta atualizarResposta(@RequestBody RespostaDto request, @PathVariable Integer id){
         return service.atualizarResposta(request,id);
     }
+
+    @DeleteMapping("/{id}")
+    public void excluirResposta(@PathVariable Integer id){
+        service.excluirResposta(id);
+    }
 }

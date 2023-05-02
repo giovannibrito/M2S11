@@ -37,4 +37,8 @@ public class QuizService {
         }
         return repository.save(quiz);
     }
+
+    public void excluirQuiz(Integer id) {
+        repository.deleteById(id);
+    }
 }
