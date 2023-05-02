@@ -22,4 +22,8 @@ public class RespostaService {
     public Resposta buscarPorId(Integer id) {
         return repository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
+
+    public List<Resposta> buscarPorPergunta(Integer pergunta) {
+        return repository.findByPergunta_Id(pergunta);
+    }
 }

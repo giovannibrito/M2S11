@@ -2,10 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.models.Pergunta;
 import com.example.demo.services.PerguntaService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,7 +16,10 @@ public class PerguntaController {
     }
 
     @GetMapping()
-    public List<Pergunta> todasPerguntas(){
+    public List<Pergunta> todasPerguntas(@RequestParam(required = false) Integer quiz){
+        if (quiz != null) {
+            return service.buscarPorQuiz(quiz);
+        }
         return service.buscarTodas();
     }
 
