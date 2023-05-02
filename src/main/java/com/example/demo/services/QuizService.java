@@ -22,4 +22,8 @@ public class QuizService {
     public Quiz buscarPorId(Integer id) {
         return repository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
+
+    public Quiz criarQuiz(Quiz request) {
+        return repository.save(request);
+    }
 }

@@ -2,10 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.models.Quiz;
 import com.example.demo.services.QuizService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +23,10 @@ public class QuizController {
     @GetMapping("/{id}")
     public Quiz buscarQuiz(@PathVariable Integer id){
         return service.buscarPorId(id);
+    }
+
+    @PostMapping()
+    public Quiz criarQuiz(@RequestBody Quiz request){
+        return service.criarQuiz(request);
     }
 }

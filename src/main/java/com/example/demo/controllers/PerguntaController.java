@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.dtos.PerguntaDto;
 import com.example.demo.models.Pergunta;
 import com.example.demo.services.PerguntaService;
 import org.springframework.web.bind.annotation.*;
@@ -28,4 +29,8 @@ public class PerguntaController {
         return service.buscarPorId(id);
     }
 
+    @PostMapping()
+    public Pergunta criarPergunta(@RequestBody PerguntaDto request){
+        return service.criarPergunta(request);
+    }
 }

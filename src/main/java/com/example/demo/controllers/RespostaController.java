@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.dtos.RespostaDto;
 import com.example.demo.models.Resposta;
 import com.example.demo.services.RespostaService;
 import org.springframework.web.bind.annotation.*;
@@ -26,5 +27,10 @@ public class RespostaController {
     @GetMapping("/{id}")
     public Resposta buscarResposta(@PathVariable Integer id){
         return service.buscarPorId(id);
+    }
+
+    @PostMapping()
+    public Resposta criarResposta(@RequestBody RespostaDto request){
+        return service.criarResposta(request);
     }
 }
